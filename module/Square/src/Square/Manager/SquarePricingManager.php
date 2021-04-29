@@ -32,7 +32,7 @@ class SquarePricingManager extends AbstractManager
         $this->squareManager = $squareManager;
 
         $select = $squarePricingTable->getSql()->select();
-        $select->order('priority ASC');
+        $select->order('date_end ASC, date_start ASC, day_start ASC, day_end ASC, time_start ASC, time_end ASC, sid ASC, priority ASC');
 
         foreach ($squarePricingTable->selectWith($select) as $result) {
             $this->rules[] = $result;
